@@ -1,0 +1,48 @@
+﻿@page "/float-input"
+
+<h3>FloatInputPage</h3>
+
+<div class="m-4">
+    <FloatInput MaxValue="7"
+                MinValue="-2"
+                Step="0.01"
+                TValue="double"
+                @bind-Value="_doubleValue"
+                Width="50"
+                Outline="true"
+                Round="false"
+                Shadow="true"
+                ShadowColor="rgba(50, 50, 255, 0.75)" />
+</div>
+
+<div class="m-4">
+    <FloatInput MaxValue="7"
+                MinValue="-2"
+                Step="0.05m"
+                TValue="decimal"
+                @bind-Value="_decimalValue"
+                Width="25"
+                Outline="true"
+                Round="false"
+                Shadow="true"
+                ShadowColor="rgba(50, 50, 255, 0.75)" />
+</div>
+
+<div class="m-4">
+    <FloatInput MaxValue="7"
+                MinValue="-2"
+                Step="0.001f"
+                TValue="float"
+                @bind-Value="_floatValue"
+                Width="25"
+                Outline="true"
+                Round="false"
+                Shadow="true"
+                ShadowColor="rgba(50, 50, 255, 0.75)" />
+</div>
+
+@code {
+    private double _doubleValue = 0;
+    private decimal _decimalValue = 0;
+    private float _floatValue = 0;
+}

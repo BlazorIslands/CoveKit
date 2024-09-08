@@ -13,9 +13,11 @@
                 <div class="nav-group-links" style="@(IsGroupCollapsed(group.Name) ? "display: none;" : "display: block;")">
                     @foreach (var link in group.Links)
                     {
-                        <NavLink href="@link.Href">
-                            <span>@link.Text</span>
-                        </NavLink>
+                        <div class="row">
+                            <NavLink href="@link.Href">
+                                <span>@link.Text</span>
+                            </NavLink>
+                        </div>
                     }
                 </div>
             </div>

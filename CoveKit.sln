@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoveKit", "CoveKit\CoveKit.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestApps", "TestApps", "{F14B1115-C0AA-432B-B6F0-C52578498417}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWASM.Test", "BlazorWASM.Test\BlazorWASM.Test.csproj", "{A3FF4555-6237-43E9-AB8A-E39A90199B3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWASM.Test", "BlazorWASM.Test\BlazorWASM.Test.csproj", "{A3FF4555-6237-43E9-AB8A-E39A90199B3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
