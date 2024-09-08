@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoveKit", "CoveKit\CoveKit.csproj", "{2FDE9A1E-FA6E-4D24-95D4-0CB98D1D9A33}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestApps", "TestApps", "{F14B1115-C0AA-432B-B6F0-C52578498417}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWASM.Test", "BlazorWASM.Test\BlazorWASM.Test.csproj", "{A3FF4555-6237-43E9-AB8A-E39A90199B3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FDE9A1E-FA6E-4D24-95D4-0CB98D1D9A33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FDE9A1E-FA6E-4D24-95D4-0CB98D1D9A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FDE9A1E-FA6E-4D24-95D4-0CB98D1D9A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FDE9A1E-FA6E-4D24-95D4-0CB98D1D9A33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3FF4555-6237-43E9-AB8A-E39A90199B3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FF4555-6237-43E9-AB8A-E39A90199B3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3FF4555-6237-43E9-AB8A-E39A90199B3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3FF4555-6237-43E9-AB8A-E39A90199B3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A3FF4555-6237-43E9-AB8A-E39A90199B3F} = {F14B1115-C0AA-432B-B6F0-C52578498417}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ECCD67FA-DF58-45DB-BAF2-EE70E50AC953}
+	EndGlobalSection
+EndGlobal
