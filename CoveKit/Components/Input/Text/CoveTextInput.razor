@@ -1,0 +1,38 @@
+﻿@namespace CoveKit
+
+@implements ICoveKitComponent
+@implements IAdjustableWidth
+@implements IShadowable
+
+<input type="text"
+       value="@Value"
+       placeholder="@(Placeholder ?? string.Empty)"
+       class="@Class @(Outline ? "ck-outline" : "ck-no-outline") @(Round ? "ck-round" : string.Empty) @(Shadow ? "ck-shadow" : string.Empty)"
+       style="@Style @(SetWidth(Width)) @(SetShadowColor(Shadow, ShadowColor))" />
+
+@code {
+    [Parameter] public string? Class  { get; set; }
+    [Parameter] public string? Style  { get; set; }
+    [Parameter] public int Width { get; set; }
+    [Parameter] public bool Shadow { get; set; }
+    [Parameter] public string ShadowColor { get; set; }
+    [Parameter] public int MaxLength { get; set; } = int.MaxValue;
+    [Parameter] public string? Placeholder  { get; set; }
+    [Parameter] public string? Value  { get; set; }
+    [Parameter] public EventCallback<string> ValueChanged { get; set; }
+    [Parameter] public bool Round { get; set; }
+    [Parameter] public bool Outline { get; set; }
+
+    public string SetWidth(int width) 
+    { 
+        return width > 0 ? $"width: {width}%;" : string.Empty; 
+    }
+
+    public string SetShadowColor(bool shadow, string shadowColor) => shadow ? $"box-shadow: 4px 4px 0 0 {shadowColor};" : string.Empty;
+
+    private void OnValueChanged(ChangeEventArgs e)
+    {
+        Value = e.Value.ToString();
+        ValueChanged.InvokeAsync(Value);
+    }
+}

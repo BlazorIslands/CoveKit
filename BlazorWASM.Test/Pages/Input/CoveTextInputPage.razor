@@ -1,0 +1,28 @@
+﻿@page "/cove-text-input"
+
+<h3>CoveTextInput Page</h3>
+
+<div class="m-4">
+    <CoveTextInput @bind-Value="_value1"
+                   Width="50"
+                   Outline="true"
+                   Round="false"
+                   Shadow="true"
+                   ShadowColor="rgba(50, 50, 255, 0.5)" />
+</div>
+
+
+<div class="m-4">
+    <CoveTextInput @bind-Value="_value2"
+                   Width="100"
+                   Outline="true"
+                   Round="true"
+                   Shadow="true"
+                   ShadowColor="rgba(50, 50, 255, 0.5)" />
+</div>
+
+
+@code {
+    private string _value1 = "Hello World!";
+    private string _value2 = string.Empty;
+}

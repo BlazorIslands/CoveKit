@@ -8,6 +8,7 @@ namespace CoveKit
 {
     internal interface IAdjustableWidth
     {
+        int Width { get; set; }
         string SetWidth(int width);
     }
 }

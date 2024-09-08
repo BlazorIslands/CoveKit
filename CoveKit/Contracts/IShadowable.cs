@@ -10,6 +10,6 @@ namespace CoveKit
     {
         bool Shadow { get; set; }
         string ShadowColor { get; set; }
-        string ApplyShadow(string shadowColor);
+        string SetShadowColor(bool shadow, string shadowColor);
     }
 }
