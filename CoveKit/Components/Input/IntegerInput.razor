@@ -1,0 +1,43 @@
+﻿@namespace CoveKit
+
+@implements ICoveKitComponent
+@implements IAdjustableWidth
+
+<input type="number"
+       value="@Value"
+       @onchange="OnValueChanged"
+       placeholder="@Placeholder ?? string.Empty"
+       disabled="@Disabled"
+       max="@MaxValue"
+       min="@MinValue"
+       class="@Class @(Outline ? "ck-outline" : "ck-no-outline") @(Round ? "ck-round" : string.Empty) @(Shadow ? "ck-shadow" : string.Empty)"
+       style="@Style @(SetWidth(Width))"/>
+
+@code {
+    [Parameter] public string? Class { get; set; }
+    [Parameter] public string? Style { get; set; }
+    [Parameter] public int? Value { get; set; }
+    [Parameter] public EventCallback<int> ValueChanged { get; set; }
+    [Parameter] public string? Placeholder { get; set; }
+    [Parameter] public bool Disabled { get; set; }
+    [Parameter] public int MaxValue { get; set; } = int.MaxValue;
+    [Parameter] public int MinValue { get; set; } = int.MinValue;
+    [Parameter] public bool Outline { get; set; }
+    [Parameter] public bool Round { get; set; }
+    [Parameter] public bool Shadow { get; set; }
+    [Parameter] public int Width { get; set; }
+
+    public string SetWidth(int width)
+    {
+        return width > 0 ? $"width: {width}%" : string.Empty;
+    }
+
+    private void OnValueChanged(ChangeEventArgs e)
+    {
+        if (int.TryParse(e?.Value?.ToString(), out int value))
+        {
+            Value = value;
+            ValueChanged.InvokeAsync(value);
+        }
+    }
+}

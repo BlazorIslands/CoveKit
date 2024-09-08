@@ -1,0 +1,15 @@
+﻿@page "/integer-input"
+
+<h3>IntegerInputPage</h3>
+
+<IntegerInput MaxValue="7"
+              MinValue="-2"
+              @bind-Value="_value"
+              Width="50" 
+              Outline="true"
+              Round="false"
+              Shadow="true"/>
+
+@code {
+    private int _value = 0;
+}
