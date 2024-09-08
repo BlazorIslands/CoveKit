@@ -16,27 +16,93 @@
        style="@Style @(SetWidth(Width)) @(SetShadowColor(Shadow, ShadowColor))"/>
 
 @code {
+    /// <summary>
+    /// Gets or sets the CSS class for the component.
+    /// </summary>
     [Parameter] public string? Class { get; set; }
+
+    /// <summary>
+    /// Gets or sets the inline CSS styles for the component.
+    /// </summary>
     [Parameter] public string? Style { get; set; }
+
+    /// <summary>
+    /// Gets or sets the value of the input.
+    /// </summary>
     [Parameter] public int? Value { get; set; }
+
+    /// <summary>
+    /// Gets or sets the callback that is invoked when the value of the input changes.
+    /// </summary>
     [Parameter] public EventCallback<int> ValueChanged { get; set; }
+
+    /// <summary>
+    /// Gets or sets the placeholder text for the input.
+    /// </summary>
     [Parameter] public string? Placeholder { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the input is disabled.
+    /// </summary>
     [Parameter] public bool Disabled { get; set; }
+
+    /// <summary>
+    /// Gets or sets the maximum value allowed for the input.
+    /// </summary>
     [Parameter] public int MaxValue { get; set; } = int.MaxValue;
+
+    /// <summary>
+    /// Gets or sets the minimum value allowed for the input.
+    /// </summary>
     [Parameter] public int MinValue { get; set; } = int.MinValue;
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the input has an outline style.
+    /// </summary>
     [Parameter] public bool Outline { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the input has a round style.
+    /// </summary>
     [Parameter] public bool Round { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the input has a shadow.
+    /// </summary>
     [Parameter] public bool Shadow { get; set; }
+
+    /// <summary>
+    /// Gets or sets the color of the shadow for the input.
+    /// </summary>
     [Parameter] public string ShadowColor { get; set; }
+
+    /// <summary>
+    /// Gets or sets the width of the input as a percentage.
+    /// </summary>
     [Parameter] public int Width { get; set; }
 
+    /// <summary>
+    /// Sets the width of the input as a CSS style.
+    /// </summary>
+    /// <param name="width">The width of the input as a percentage.</param>
+    /// <returns>The CSS style for the width of the input.</returns>
     public string SetWidth(int width)
     {
         return width > 0 ? $"width: {width}%;" : string.Empty;
     }
 
+    /// <summary>
+    /// Sets the shadow color of the input as a CSS style.
+    /// </summary>
+    /// <param name="shadow">A value indicating whether the input has a shadow.</param>
+    /// <param name="shadowColor">The color of the shadow for the input.</param>
+    /// <returns>The CSS style for the shadow color of the input.</returns>
     public string SetShadowColor(bool shadow, string shadowColor) => shadow ? $"box-shadow: 4px 4px 0 0 {shadowColor};" : string.Empty;
 
+    /// <summary>
+    /// Handles the change event when the value of the input changes.
+    /// </summary>
+    /// <param name="e">The event arguments.</param>
     private void OnValueChanged(ChangeEventArgs e)
     {
         if (int.TryParse(e?.Value?.ToString(), out int value))

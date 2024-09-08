@@ -6,30 +6,89 @@
 
 <input type="text"
        value="@Value"
+       maxlength="@MaxLength"
        placeholder="@(Placeholder ?? string.Empty)"
        class="@Class @(Outline ? "ck-outline" : "ck-no-outline") @(Round ? "ck-round" : string.Empty) @(Shadow ? "ck-shadow" : string.Empty)"
        style="@Style @(SetWidth(Width)) @(SetShadowColor(Shadow, ShadowColor))" />
 
 @code {
+    /// <summary>
+    /// Gets or sets the CSS class for the input element.
+    /// </summary>
     [Parameter] public string? Class  { get; set; }
+
+    /// <summary>
+    /// Gets or sets the inline CSS styles for the input element.
+    /// </summary>
     [Parameter] public string? Style  { get; set; }
+
+    /// <summary>
+    /// Gets or sets the width of the input element.
+    /// </summary>
     [Parameter] public int Width { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the input element has a shadow.
+    /// </summary>
     [Parameter] public bool Shadow { get; set; }
+
+    /// <summary>
+    /// Gets or sets the color of the shadow for the input element.
+    /// </summary>
     [Parameter] public string ShadowColor { get; set; }
+
+    /// <summary>
+    /// Gets or sets the maximum length of the input value.
+    /// </summary>
     [Parameter] public int MaxLength { get; set; } = int.MaxValue;
+
+    /// <summary>
+    /// Gets or sets the placeholder text for the input element.
+    /// </summary>
     [Parameter] public string? Placeholder  { get; set; }
+
+    /// <summary>
+    /// Gets or sets the value of the input element.
+    /// </summary>
     [Parameter] public string? Value  { get; set; }
+
+    /// <summary>
+    /// Gets or sets the event callback for when the value of the input element changes.
+    /// </summary>
     [Parameter] public EventCallback<string> ValueChanged { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the input element has a round shape.
+    /// </summary>
     [Parameter] public bool Round { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the input element has an outline.
+    /// </summary>
     [Parameter] public bool Outline { get; set; }
 
+    /// <summary>
+    /// Sets the width of the input element based on the specified percentage.
+    /// </summary>
+    /// <param name="width">The width percentage.</param>
+    /// <returns>The CSS style for setting the width.</returns>
     public string SetWidth(int width) 
     { 
         return width > 0 ? $"width: {width}%;" : string.Empty; 
     }
 
+    /// <summary>
+    /// Sets the shadow color for the input element based on the specified shadow and color.
+    /// </summary>
+    /// <param name="shadow">A value indicating whether the input element has a shadow.</param>
+    /// <param name="shadowColor">The color of the shadow.</param>
+    /// <returns>The CSS style for setting the shadow color.</returns>
     public string SetShadowColor(bool shadow, string shadowColor) => shadow ? $"box-shadow: 4px 4px 0 0 {shadowColor};" : string.Empty;
 
+    /// <summary>
+    /// Handles the value changed event of the input element.
+    /// </summary>
+    /// <param name="e">The event arguments.</param>
     private void OnValueChanged(ChangeEventArgs e)
     {
         Value = e.Value.ToString();

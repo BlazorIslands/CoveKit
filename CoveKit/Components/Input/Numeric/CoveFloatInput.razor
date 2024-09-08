@@ -18,28 +18,98 @@
        style="@Style @(SetWidth(Width)) @(SetShadowColor(Shadow, ShadowColor))" />
 
 @code {
+    /// <summary>
+    /// Gets or sets the CSS class for the component.
+    /// </summary>
     [Parameter] public string? Class { get; set; }
+
+    /// <summary>
+    /// Gets or sets the inline style for the component.
+    /// </summary>
     [Parameter] public string? Style { get; set; }
+
+    /// <summary>
+    /// Gets or sets the value of the input.
+    /// </summary>
     [Parameter] public TValue? Value { get; set; }
+
+    /// <summary>
+    /// Gets or sets the callback for when the value of the input changes.
+    /// </summary>
     [Parameter] public EventCallback<TValue?> ValueChanged { get; set; }
+
+    /// <summary>
+    /// Gets or sets the placeholder text for the input.
+    /// </summary>
     [Parameter] public string? Placeholder { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the input is disabled.
+    /// </summary>
     [Parameter] public bool Disabled { get; set; }
+
+    /// <summary>
+    /// Gets or sets the maximum value for the input.
+    /// </summary>
     [Parameter] public TValue? MaxValue { get; set; }
+
+    /// <summary>
+    /// Gets or sets the minimum value for the input.
+    /// </summary>
     [Parameter] public TValue? MinValue { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the input has an outline.
+    /// </summary>
     [Parameter] public bool Outline { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the input has a round shape.
+    /// </summary>
     [Parameter] public bool Round { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the input has a shadow.
+    /// </summary>
     [Parameter] public bool Shadow { get; set; }
+
+    /// <summary>
+    /// Gets or sets the color of the shadow for the input.
+    /// </summary>
     [Parameter] public string ShadowColor { get; set; } = "rgba(0, 0, 0, 0.1)";
+
+    /// <summary>
+    /// Gets or sets the width of the input in percentage.
+    /// </summary>
     [Parameter] public int Width { get; set; }
+
+    /// <summary>
+    /// Gets or sets the step value for the input.
+    /// </summary>
     [Parameter] public TValue? Step { get; set; }
 
+    /// <summary>
+    /// Sets the width of the input based on the specified percentage.
+    /// </summary>
+    /// <param name="width">The width of the input in percentage.</param>
+    /// <returns>The CSS style for setting the width of the input.</returns>
     public string SetWidth(int width)
     {
         return width > 0 ? $"width: {width}%;" : string.Empty;
     }
 
+    /// <summary>
+    /// Sets the shadow color for the input based on the specified parameters.
+    /// </summary>
+    /// <param name="shadow">A value indicating whether the input has a shadow.</param>
+    /// <param name="shadowColor">The color of the shadow for the input.</param>
+    /// <returns>The CSS style for setting the shadow color of the input.</returns>
     public string SetShadowColor(bool shadow, string shadowColor) => shadow ? $"box-shadow: 4px 4px 0 0 {shadowColor};" : string.Empty;
 
+    /// <summary>
+    /// Handles the change event when the value of the input changes.
+    /// </summary>
+    /// <param name="e">The event arguments.</param>
     private void OnValueChanged(ChangeEventArgs e)
     {
         if (e?.Value is string input && TryParseValue(input, out TValue value))
@@ -49,6 +119,12 @@
         }
     }
 
+    /// <summary>
+    /// Tries to parse the input value and convert it to the specified type.
+    /// </summary>
+    /// <param name="input">The input value to parse.</param>
+    /// <param name="result">The parsed value.</param>
+    /// <returns><c>true</c> if the input value was successfully parsed; otherwise, <c>false</c>.</returns>
     private bool TryParseValue(string input, out TValue result)
     {
         result = default;
