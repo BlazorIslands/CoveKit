@@ -1,7 +1,9 @@
-﻿@inherits LayoutComponentBase
+﻿@using BlazorWASM.Test.Shared
+@inherits LayoutComponentBase
 <div class="page">
     <div class="sidebar">
-        <NavMenu />
+@*         <NavMenu /> *@
+        <NavMenu Groups="_navGroups" />
     </div>
 
     <main>
@@ -14,3 +16,25 @@
         </article>
     </main>
 </div>
+
+@code {
+    private List<NavGroup> _navGroups = new()
+    {
+        new NavGroup
+        {
+            Name = "Home",
+            Links = new List<NavLinkItem>
+            {
+                new NavLinkItem { Href = "/", Text = "Home" }
+            }
+        }, 
+        new NavGroup
+        {
+            Name = "Input",
+            Links = new List<NavLinkItem>
+            {
+                new NavLinkItem { Href = "/integer-input", Text = "IntegerInput" }
+            }
+        }
+    };
+}

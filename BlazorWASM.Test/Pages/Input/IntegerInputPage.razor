@@ -2,14 +2,29 @@
 
 <h3>IntegerInputPage</h3>
 
-<IntegerInput MaxValue="7"
-              MinValue="-2"
-              @bind-Value="_value"
-              Width="50" 
-              Outline="true"
-              Round="false"
-              Shadow="true"/>
+<div class="m-4">
+    <IntegerInput MaxValue="7"
+                  MinValue="-2"
+                  @bind-Value="_value1"
+                  Width="50"
+                  Outline="true"
+                  Round="false"
+                  Shadow="true" />
+</div>
+
+<div class="m-4">
+    <IntegerInput MaxValue="7"
+                  MinValue="-2"
+                  @bind-Value="_value2"
+                  Width="25"
+                  Outline="true"
+                  Round="false"
+                  Shadow="true"
+                  ShadowColor="rgba(100, 50, 50, 0.5)" />
+</div>
+
 
 @code {
-    private int _value = 0;
+    private int _value1 = 0;
+    private int _value2 = 0;
 }

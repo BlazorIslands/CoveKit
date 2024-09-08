@@ -2,16 +2,18 @@
 
 @implements ICoveKitComponent
 @implements IAdjustableWidth
+@implements IShadowable
 
 <input type="number"
        value="@Value"
        @onchange="OnValueChanged"
-       placeholder="@Placeholder ?? string.Empty"
+       placeholder="@(Placeholder ?? string.Empty)"
        disabled="@Disabled"
        max="@MaxValue"
        min="@MinValue"
+       step="1"
        class="@Class @(Outline ? "ck-outline" : "ck-no-outline") @(Round ? "ck-round" : string.Empty) @(Shadow ? "ck-shadow" : string.Empty)"
-       style="@Style @(SetWidth(Width))"/>
+       style="@Style @(SetWidth(Width)) @(ApplyShadow(ShadowColor))"/>
 
 @code {
     [Parameter] public string? Class { get; set; }
@@ -25,11 +27,17 @@
     [Parameter] public bool Outline { get; set; }
     [Parameter] public bool Round { get; set; }
     [Parameter] public bool Shadow { get; set; }
+    [Parameter] public string ShadowColor { get; set; }
     [Parameter] public int Width { get; set; }
 
     public string SetWidth(int width)
     {
-        return width > 0 ? $"width: {width}%" : string.Empty;
+        return width > 0 ? $"width: {width}%;" : string.Empty;
+    }
+
+    public string ApplyShadow(string shadowColor)
+    {
+        return Shadow ? $"box-shadow: 4px 4px 0 0 {shadowColor};" : string.Empty;
     }
 
     private void OnValueChanged(ChangeEventArgs e)

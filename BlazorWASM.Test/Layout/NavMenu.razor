@@ -1,4 +1,52 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using BlazorWASM.Test.Shared
+
+<div class="nav-menu">
+    @if (Groups != null)
+    {
+        foreach (var group in Groups)
+        {
+            <div class="nav-group">
+                <div class="nav-group-header" @onclick="() => ToggleGroupCollapse(group.Name)">
+                    <span>@group.Name</span>
+                    <span>@(IsGroupCollapsed(group.Name) ? "▼" : "▲")</span>
+                </div>
+                <div class="nav-group-links" style="@(IsGroupCollapsed(group.Name) ? "display: none;" : "display: block;")">
+                    @foreach (var link in group.Links)
+                    {
+                        <NavLink href="@link.Href">
+                            <span>@link.Text</span>
+                        </NavLink>
+                    }
+                </div>
+            </div>
+        }
+    }
+</div>
+
+@code {
+    private Dictionary<string, bool> groupCollapsedStates = new Dictionary<string, bool>();
+
+    [Parameter] public List<NavGroup> Groups { get; set; }
+
+    private void ToggleGroupCollapse(string groupName)
+    {
+        if (!groupCollapsedStates.ContainsKey(groupName))
+        {
+            groupCollapsedStates[groupName] = true;
+        }
+        else
+        {
+            groupCollapsedStates[groupName] = !groupCollapsedStates[groupName];
+        }
+    }
+
+    private bool IsGroupCollapsed(string groupName)
+    {
+        return groupCollapsedStates.ContainsKey(groupName) && groupCollapsedStates[groupName];
+    }
+}
+
+@* <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">BlazorWASM.Test</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -15,7 +63,6 @@
             </NavLink>
         </div>
     </nav>
-
     <nav class="flex-column">
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="/integer-input" Match="NavLinkMatch.All">
@@ -23,7 +70,6 @@
             </NavLink>
         </div>
     </nav>
-    
 </div>
 
 @code {
@@ -36,3 +82,4 @@
         collapseNavMenu = !collapseNavMenu;
     }
 }
+ *@
