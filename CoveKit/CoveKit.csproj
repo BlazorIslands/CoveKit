@@ -21,6 +21,8 @@
     <Folder Include="Components\Input\FileMedia\" />
     <Folder Include="Components\Input\Other\" />
     <Folder Include="Components\Input\Selection\" />
+    <Folder Include="Components\Grid\" />
+    <Folder Include="Components\Text\" />
   </ItemGroup>
 
 </Project>

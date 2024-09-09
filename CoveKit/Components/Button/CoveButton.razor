@@ -1,0 +1,16 @@
+﻿@namespace CoveKit
+
+@implements ICoveKitComponent
+
+<button type="@CoveButtonTypeHelper.GetButtonType(Type)"
+        class=""
+        style="">
+    @Text
+</button>
+
+@code {
+    [Parameter] public string? Class { get; set; }
+    [Parameter] public string? Style { get; set; }
+    [Parameter] public string? Text { get; set; }
+    [Parameter] public CoveButtonType Type { get; set; }
+}

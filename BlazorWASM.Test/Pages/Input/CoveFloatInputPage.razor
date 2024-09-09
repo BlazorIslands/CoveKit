@@ -2,7 +2,7 @@
 
 <h3>CoveFloatInput Page</h3>
 
-<div class="m-4">
+<div>
     <CoveFloatInput MaxValue="7"
                 MinValue="-2"
                 Step="0.01"
@@ -12,10 +12,11 @@
                 Outline="true"
                 Round="false"
                 Shadow="true"
-                ShadowColor="rgba(50, 50, 255, 0.75)" />
+                ShadowColor="_shadowColor"
+                BorderColor="_borderColor" />
 </div>
 
-<div class="m-4">
+<div>
     <CoveFloatInput MaxValue="7"
                 MinValue="-2"
                 Step="0.05m"
@@ -25,10 +26,11 @@
                 Outline="true"
                 Round="false"
                 Shadow="true"
-                ShadowColor="rgba(50, 50, 255, 0.75)" />
+                ShadowColor="_shadowColor"
+                BorderColor="_borderColor" />
 </div>
 
-<div class="m-4">
+<div>
     <CoveFloatInput MaxValue="7"
                 MinValue="-2"
                 Step="0.001f"
@@ -38,11 +40,14 @@
                 Outline="true"
                 Round="false"
                 Shadow="true"
-                ShadowColor="rgba(50, 50, 255, 0.75)" />
+                ShadowColor="_shadowColor"
+                BorderColor="_borderColor" />
 </div>
 
 @code {
     private double _doubleValue = 0;
     private decimal _decimalValue = 0;
     private float _floatValue = 0;
+    private CoveColor _shadowColor = new CoveColor(50, 50, 255);
+    private CoveColor _borderColor = new CoveColor(50, 50, 255);
 }

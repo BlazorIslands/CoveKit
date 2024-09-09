@@ -2,17 +2,18 @@
 
 <h3>CoveIntegerInput Page</h3>
 
-<div class="m-4">
+<div>
     <CoveIntegerInput MaxValue="7"
                   MinValue="-2"
                   @bind-Value="_value1"
                   Width="50"
                   Outline="true"
                   Round="false"
-                  Shadow="true" />
+                  Shadow="true"
+                  BorderColor="new CoveColor(0, 150, 0)"/>
 </div>
 
-<div class="m-4">
+<div>
     <CoveIntegerInput MaxValue="7"
                   MinValue="-2"
                   @bind-Value="_value2"
@@ -20,7 +21,8 @@
                   Outline="true"
                   Round="false"
                   Shadow="true"
-                  ShadowColor="rgba(50, 50, 255, 0.75)" />
+                  ShadowColor="_shadowColor"
+                  BorderColor="_borderColor"/>
 </div>
 
 <div>
@@ -31,4 +33,6 @@
 @code {
     private int _value1 = 0;
     private int _value2 = 0;
+    private CoveColor _shadowColor = new CoveColor(0, 0, 0);
+    private CoveColor _borderColor = new CoveColor(0, 0, 0);
 }

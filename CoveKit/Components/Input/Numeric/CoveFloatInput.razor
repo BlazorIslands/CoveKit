@@ -5,6 +5,7 @@
 @implements ICoveKitComponent
 @implements IAdjustableWidth
 @implements IShadowable
+@implements IBorderable
 
 <input type="number"
        value="@Value"
@@ -14,8 +15,8 @@
        max="@MaxValue?.ToString()"
        min="@MinValue?.ToString()"
        step="@(Step?.ToString() ?? "1")"
-       class="@Class @(Outline ? "ck-outline" : "ck-no-outline") @(Round ? "ck-round" : string.Empty) @(Shadow ? "ck-shadow" : string.Empty)"
-       style="@Style @(SetWidth(Width)) @(SetShadowColor(Shadow, ShadowColor))" />
+       class="p-2 m-2 ck-font @Class @(Outline ? "ck-outline" : "ck-no-outline") @(Round ? "ck-input-round" : string.Empty) @(Shadow ? "ck-shadow" : string.Empty)"
+       style="@Style @(SetWidth(Width)) @(SetShadowColor(Shadow, ShadowColor)) @(SetBorderColor(BorderColor))" />
 
 @code {
     /// <summary>
@@ -76,7 +77,7 @@
     /// <summary>
     /// Gets or sets the color of the shadow for the input.
     /// </summary>
-    [Parameter] public string ShadowColor { get; set; } = "rgba(0, 0, 0, 0.1)";
+    [Parameter] public CoveColor ShadowColor { get; set; }
 
     /// <summary>
     /// Gets or sets the width of the input in percentage.
@@ -87,6 +88,9 @@
     /// Gets or sets the step value for the input.
     /// </summary>
     [Parameter] public TValue? Step { get; set; }
+
+    [Parameter]
+    public CoveColor BorderColor { get; set; }
 
     /// <summary>
     /// Sets the width of the input based on the specified percentage.
@@ -104,7 +108,9 @@
     /// <param name="shadow">A value indicating whether the input has a shadow.</param>
     /// <param name="shadowColor">The color of the shadow for the input.</param>
     /// <returns>The CSS style for setting the shadow color of the input.</returns>
-    public string SetShadowColor(bool shadow, string shadowColor) => shadow ? $"box-shadow: 4px 4px 0 0 {shadowColor};" : string.Empty;
+    public string SetShadowColor(bool shadow, CoveColor shadowColor) => shadow ? $"box-shadow: 7px 7px 0 0 {shadowColor};" : string.Empty;
+
+    public string SetBorderColor(CoveColor borderColor) => $"border-color: {borderColor};";
 
     /// <summary>
     /// Handles the change event when the value of the input changes.
