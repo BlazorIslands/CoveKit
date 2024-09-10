@@ -15,8 +15,8 @@
        max="@MaxValue?.ToString()"
        min="@MinValue?.ToString()"
        step="@(Step?.ToString() ?? "1")"
-       class="p-2 m-2 ck-font @Class @(Outline ? "ck-outline" : "ck-no-outline") @(Round ? "ck-input-round" : string.Empty) @(Shadow ? "ck-shadow" : string.Empty)"
-       style="@Style @(SetWidth(Width)) @(SetShadowColor(Shadow, ShadowColor)) @(SetBorderColor(BorderColor))" />
+       class="p-2 m-2 ck-font @Class @(Border ? "ck-border" : "ck-no-border") @(Round ? "ck-input-round" : string.Empty) @(Shadow ? "ck-shadow" : string.Empty)"
+       style="@Style @(SetWidth(Width)) @(SetShadowColor(Shadow, ShadowColor)) @(SetBorderColor(Border, BorderColor))" />
 
 @code {
     /// <summary>
@@ -62,7 +62,7 @@
     /// <summary>
     /// Gets or sets a value indicating whether the input has an outline.
     /// </summary>
-    [Parameter] public bool Outline { get; set; }
+    [Parameter] public bool Border { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the input has a round shape.
@@ -110,7 +110,7 @@
     /// <returns>The CSS style for setting the shadow color of the input.</returns>
     public string SetShadowColor(bool shadow, CoveColor shadowColor) => shadow ? $"box-shadow: 7px 7px 0 0 {shadowColor};" : string.Empty;
 
-    public string SetBorderColor(CoveColor borderColor) => $"border-color: {borderColor};";
+    public string SetBorderColor(bool border, CoveColor borderColor) => border ? $"border-color: {borderColor};" : string.Empty;
 
     /// <summary>
     /// Handles the change event when the value of the input changes.

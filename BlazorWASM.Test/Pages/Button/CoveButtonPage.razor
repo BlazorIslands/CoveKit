@@ -1,0 +1,78 @@
+﻿@page "/cove-button"
+
+<h3>CoveButton Page</h3>
+
+<CoveTextInput Placeholder="Type anything here..."
+               @bind-Value="_value"
+               Shadow="true"
+               ShadowColor="_shadowColor"
+               Border="true"
+               BorderColor="_borderColor"
+               @ref="_textInputRef"/>
+
+<CoveButton Type="CoveButtonType.Button"
+            Text="Click Me"
+            Shadow="true"
+            ShadowColor="_shadowColor"
+            Border="true"
+            BorderColor="_borderColor"
+            OnClick="ButtonClickedAsync"
+            Round="true">
+</CoveButton>
+
+<CoveButton Type="CoveButtonType.Reset"
+            Text="Reset"
+            Shadow="true"
+            ShadowColor="_shadowColor"
+            Border="true"
+            BorderColor="_borderColor"
+            OnClick="ResetClickedAsync"
+            Round="true">
+</CoveButton>
+
+<CoveButton Type="CoveButtonType.Button"
+            Text="Test Button, Click Me!"
+            Shadow="true"
+            ShadowColor="_shadowColor"
+            Border="true"
+            BorderColor="_borderColor"
+            OnClick="ResetClickedAsync"
+            Round="true"
+            BackgroundColor="_backgroundColor">
+</CoveButton>
+
+<CoveButton Type="CoveButtonType.Button"
+            Text="Test Button, Click Me!"
+            Shadow="true"
+            ShadowColor="_shadowColor"
+            Border="true"
+            BorderColor="_borderColor"
+            OnClick="ResetClickedAsync"
+            Round="false"
+            BackgroundColor="_backgroundColor"
+            TextColor="new CoveColor(225, 225, 225)">
+</CoveButton>
+
+<div>
+    <p>Count: @_count</p>
+</div>
+
+@code {
+    private CoveColor _shadowColor = new CoveColor(0, 0, 0);
+    private CoveColor _borderColor = new CoveColor(0, 0, 0);
+    private CoveColor _backgroundColor = new CoveColor(50, 50, 225);
+    private int _count = 0;
+    private string _value = string.Empty;
+    private CoveTextInput? _textInputRef;
+
+    private async void ButtonClickedAsync()
+    {
+        _count++;
+    }
+
+    private async void ResetClickedAsync()
+    {
+        _count = 0;
+        _value = string.Empty;
+    }
+}

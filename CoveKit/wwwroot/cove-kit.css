@@ -5,13 +5,13 @@
     color: black;
 }
 
-.ck-outline {
+.ck-border {
     border-style: solid;
     border-width: 3px;
     border-color: black;
 }
 
-.ck-no-outline {
+.ck-no-border {
     border: none;
 }
 

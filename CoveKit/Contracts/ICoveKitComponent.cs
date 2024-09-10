@@ -11,6 +11,5 @@ namespace CoveKit
         string? Class { get; set; }
         string? Style { get; set; }
         bool Round { get; set; }
-        bool Outline { get; set; }
     }
 }

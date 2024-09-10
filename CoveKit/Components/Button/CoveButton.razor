@@ -1,16 +1,35 @@
 ﻿@namespace CoveKit
 
 @implements ICoveKitComponent
+@implements IBorderable
+@implements IShadowable
 
 <button type="@CoveButtonTypeHelper.GetButtonType(Type)"
-        class=""
-        style="">
-    @Text
+        @onclick="OnClick"
+        class="ck-font ck-button @Class @(Round ? "ck-button-round" : string.Empty) @(Border ? "ck-border" : "ck-no-border") @(Shadow ? "ck-shadow" : string.Empty)"
+        style="@Style @(SetShadowColor(Shadow, ShadowColor)) @SetBorderColor(Border, BorderColor) @(SetBackgroundColor(BackgroundColor)) @(SetTextColor(TextColor))">
+    @(Text ?? string.Empty)
 </button>
 
 @code {
     [Parameter] public string? Class { get; set; }
     [Parameter] public string? Style { get; set; }
+    [Parameter] public bool Round { get; set; }
+    [Parameter] public bool Border { get; set; }
+    [Parameter] public CoveColor BorderColor { get; set; }
+    [Parameter] public bool Shadow { get; set; }
+    [Parameter] public CoveColor ShadowColor { get; set; }
+    [Parameter] public CoveColor BackgroundColor { get; set; }
+    [Parameter] public CoveColor TextColor { get; set; }
     [Parameter] public string? Text { get; set; }
     [Parameter] public CoveButtonType Type { get; set; }
+    [Parameter] public EventCallback OnClick { get; set; }
+
+    public string SetShadowColor(bool shadow, CoveColor shadowColor) => shadow ? $"box-shadow: 7px 7px 0 0 {shadowColor};" : string.Empty;
+
+    public string SetBorderColor(bool border, CoveColor borderColor) => border ? $"border-color: {borderColor};" : string.Empty;
+
+    public string SetBackgroundColor(CoveColor backgroundColor) => $"background-color: {backgroundColor};";
+
+    public string SetTextColor(CoveColor textColor) => $"color: {textColor};";
 }

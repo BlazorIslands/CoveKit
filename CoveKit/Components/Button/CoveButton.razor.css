@@ -1,0 +1,15 @@
+.ck-button {
+    display: inline-block;
+    height: 50px;
+    text-align: center;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.ck-button:hover {
+    filter: brightness(1.1);
+}
+
+.ck-button-round {
+    border-radius: 50px;
+}
