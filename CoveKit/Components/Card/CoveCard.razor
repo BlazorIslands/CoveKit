@@ -5,7 +5,8 @@
 @implements IShadowable
 @implements IBackgroundable
 
-<div class="p-2 m-2 ck-card @Class @(Border ? "ck-border" : "ck-no-border") @(Shadow ? "ck-shadow" : "ck-no-shadow") @(Round ? "ck-card-round" : string.Empty)"
+<div @attributes="AdditionalAttributes"
+     class="p-2 m-2 ck-card @Class @(Border ? "ck-border" : "ck-no-border") @(Shadow ? "ck-shadow" : "ck-no-shadow") @(Round ? "ck-card-round" : string.Empty)"
      style="@Style @(SetShadowColor(Shadow, ShadowColor)) @(SetBorderColor(Border, BorderColor)) @(SetBackgroundColor(BackgroundColor))">
      @ChildContent
 </div>
@@ -20,6 +21,7 @@
     [Parameter] public CoveColor ShadowColor { get; set; }
     [Parameter] public CoveColor BackgroundColor { get; set; }
     [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)] public Dictionary<string, object> AdditionalAttributes { get; set; }
 
     public string SetShadowColor(bool shadow, CoveColor shadowColor) => shadow ? $"box-shadow: 10px 10px 0 0 {shadowColor};" : string.Empty;
 

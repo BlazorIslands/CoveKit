@@ -1,0 +1,32 @@
+﻿@page "/demo-basic-components"
+
+<h3>DemoBasicComponents</h3>
+
+<CoveCard Border="true"
+          BorderColor="_borderColor"
+          Shadow="true"
+          ShadowColor="_shadowColor"
+          BackgroundColor="_backgroundColor"
+          Round="true">
+
+    <CoveTextInput Label="Test Label"
+                   Border="true"
+                   Shadow="true"
+                   Width="50"/>
+
+    <CoveTextInput />
+
+    <CoveIntegerInput />
+
+    <CoveFloatInput TValue="double" />
+
+    <CoveButton Text="Click Me" />
+
+</CoveCard>
+
+@code {
+
+    private CoveColor _borderColor = new CoveColor(0, 0, 0);
+    private CoveColor _shadowColor = new CoveColor(50, 50, 220);
+    private CoveColor _backgroundColor = new CoveColor(225, 255, 255);
+}

@@ -11,5 +11,6 @@ namespace CoveKit
         string? Class { get; set; }
         string? Style { get; set; }
         bool Round { get; set; }
+        Dictionary<string, object> AdditionalAttributes { get; set; }
     }
 }

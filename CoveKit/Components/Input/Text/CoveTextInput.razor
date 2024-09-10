@@ -5,12 +5,21 @@
 @implements IShadowable
 @implements IBorderable
 
-<input type="text"
-       value="@Value"
-       maxlength="@MaxLength"
-       placeholder="@(Placeholder ?? string.Empty)"
-       class="p-2 m-2 ck-font @Class @(Border ? "ck-border" : "ck-no-border") @(Round ? "ck-input-round" : string.Empty) @(Shadow ? "ck-shadow" : string.Empty)"
-       style="@Style @(SetWidth(Width)) @(SetShadowColor(Shadow, ShadowColor)) @(SetBorderColor(Border, BorderColor))" />
+<div class="ck-input-wrapper"
+     style="@(SetWidth(Width))">
+    @if (!string.IsNullOrEmpty(Label))
+    {
+        <div class="ck-input-label">@Label</div>
+    }
+
+    <input type="text"
+           value="@Value"
+           maxlength="@MaxLength"
+           placeholder="@(Placeholder ?? string.Empty)"
+           @attributes="AdditionalAttributes"
+           class="p-2 m-2 ck-font @Class @(Border ? "ck-border" : "ck-no-border") @(Round ? "ck-input-round" : string.Empty) @(Shadow ? "ck-shadow" : string.Empty)"
+           style="@Style @(SetShadowColor(Shadow, ShadowColor)) @(SetBorderColor(Border, BorderColor))" />
+</div>
 
 @code {
     /// <summary>
@@ -70,6 +79,12 @@
 
     [Parameter]
     public CoveColor BorderColor { get; set; }
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> AdditionalAttributes { get; set; }
 
     /// <summary>
     /// Sets the width of the input element based on the specified percentage.

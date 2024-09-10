@@ -27,7 +27,15 @@
             {
                 new NavLinkItem { Href = "/", Text = "Home" }
             }
-        }, 
+        },
+        new NavGroup
+        {
+            Name = "Demo Pages",
+            Links = new List<NavLinkItem>
+            {
+                new NavLinkItem { Href = "/demo-basic-components", Text = "DemoBasicComponents" }
+            }
+        },
         new NavGroup
         {
             Name = "CoveInput",

@@ -8,6 +8,7 @@
 <input type="number"
        value="@Value"
        @onchange="OnValueChanged"
+       @attributes="AdditionalAttributes"
        placeholder="@(Placeholder ?? string.Empty)"
        disabled="@Disabled"
        max="@MaxValue"
@@ -84,6 +85,9 @@
 
     [Parameter]
     public CoveColor BorderColor { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> AdditionalAttributes { get; set; }
 
     /// <summary>
     /// Sets the width of the input as a CSS style.

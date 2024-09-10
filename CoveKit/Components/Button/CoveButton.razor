@@ -6,6 +6,7 @@
 @implements IBackgroundable
 
 <button type="@CoveButtonTypeHelper.GetButtonType(Type)"
+        @attributes="AdditionalAttributes"
         @onclick="OnClick"
         class="ck-font ck-button @Class @(Round ? "ck-button-round" : string.Empty) @(Border ? "ck-border" : "ck-no-border") @(Shadow ? "ck-shadow" : string.Empty)"
         style="@Style @(SetShadowColor(Shadow, ShadowColor)) @SetBorderColor(Border, BorderColor) @(SetBackgroundColor(BackgroundColor)) @(SetTextColor(TextColor))">
@@ -25,6 +26,7 @@
     [Parameter] public string? Text { get; set; }
     [Parameter] public CoveButtonType Type { get; set; }
     [Parameter] public EventCallback OnClick { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)] public Dictionary<string, object> AdditionalAttributes { get; set; }
 
     public string SetShadowColor(bool shadow, CoveColor shadowColor) => shadow ? $"box-shadow: 7px 7px 0 0 {shadowColor};" : string.Empty;
 
