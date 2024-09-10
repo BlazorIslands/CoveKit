@@ -1,0 +1,29 @@
+﻿@namespace CoveKit
+
+@implements ICoveKitComponent
+@implements IBorderable
+@implements IShadowable
+@implements IBackgroundable
+
+<div class="p-2 m-2 ck-card @Class @(Border ? "ck-border" : "ck-no-border") @(Shadow ? "ck-shadow" : "ck-no-shadow") @(Round ? "ck-card-round" : string.Empty)"
+     style="@Style @(SetShadowColor(Shadow, ShadowColor)) @(SetBorderColor(Border, BorderColor)) @(SetBackgroundColor(BackgroundColor))">
+     @ChildContent
+</div>
+
+@code {
+    [Parameter] public string? Class { get; set; }
+    [Parameter] public string? Style { get; set; }
+    [Parameter] public bool Round { get; set; }
+    [Parameter] public bool Border { get; set; }
+    [Parameter] public CoveColor BorderColor { get; set; }
+    [Parameter] public bool Shadow { get; set; }
+    [Parameter] public CoveColor ShadowColor { get; set; }
+    [Parameter] public CoveColor BackgroundColor { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    public string SetShadowColor(bool shadow, CoveColor shadowColor) => shadow ? $"box-shadow: 10px 10px 0 0 {shadowColor};" : string.Empty;
+
+    public string SetBorderColor(bool border, CoveColor borderColor) => border ? $"border-color: {borderColor};" : string.Empty;
+
+    public string SetBackgroundColor(CoveColor backgroundColor) => $"background-color: {backgroundColor};";
+}

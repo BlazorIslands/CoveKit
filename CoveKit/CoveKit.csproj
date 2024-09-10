@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\Card\" />
     <Folder Include="Components\Input\DateTime\" />
     <Folder Include="Components\Input\FileMedia\" />
     <Folder Include="Components\Input\Other\" />

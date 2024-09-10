@@ -2,60 +2,91 @@
 
 <h3>CoveButton Page</h3>
 
-<CoveTextInput Placeholder="Type anything here..."
-               @bind-Value="_value"
-               Shadow="true"
-               ShadowColor="_shadowColor"
-               Border="true"
-               BorderColor="_borderColor"
-               @ref="_textInputRef"/>
+<CoveCard Border="true"
+          Shadow="true"
+          Round="true">
+    <CoveTextInput Placeholder="Type anything here..."
+                   @bind-Value="_value"
+                   Shadow="true"
+                   ShadowColor="_shadowColor"
+                   Border="true"
+                   BorderColor="_borderColor"
+                   @ref="_textInputRef" />
 
-<CoveButton Type="CoveButtonType.Button"
-            Text="Click Me"
-            Shadow="true"
-            ShadowColor="_shadowColor"
-            Border="true"
-            BorderColor="_borderColor"
-            OnClick="ButtonClickedAsync"
-            Round="true">
-</CoveButton>
+    <CoveButton Type="CoveButtonType.Button"
+                Text="Click Me"
+                Shadow="true"
+                ShadowColor="_shadowColor"
+                Border="true"
+                BorderColor="_borderColor"
+                OnClick="ButtonClickedAsync"
+                Round="true">
+    </CoveButton>
 
-<CoveButton Type="CoveButtonType.Reset"
-            Text="Reset"
-            Shadow="true"
-            ShadowColor="_shadowColor"
-            Border="true"
-            BorderColor="_borderColor"
-            OnClick="ResetClickedAsync"
-            Round="true">
-</CoveButton>
+    <CoveButton Type="CoveButtonType.Reset"
+                Text="Reset"
+                Shadow="true"
+                ShadowColor="_shadowColor"
+                Border="true"
+                BorderColor="_borderColor"
+                OnClick="ResetClickedAsync"
+                Round="true">
+    </CoveButton>
 
-<CoveButton Type="CoveButtonType.Button"
-            Text="Test Button, Click Me!"
-            Shadow="true"
-            ShadowColor="_shadowColor"
-            Border="true"
-            BorderColor="_borderColor"
-            OnClick="ResetClickedAsync"
-            Round="true"
-            BackgroundColor="_backgroundColor">
-</CoveButton>
+    <CoveButton Type="CoveButtonType.Button"
+                Text="Test Button, Click Me!"
+                Shadow="true"
+                ShadowColor="_shadowColor"
+                Border="true"
+                BorderColor="_borderColor"
+                OnClick="ResetClickedAsync"
+                Round="true"
+                BackgroundColor="_backgroundColor"
+                TextColor="new CoveColor(255, 223, 127)">
+    </CoveButton>
 
-<CoveButton Type="CoveButtonType.Button"
-            Text="Test Button, Click Me!"
-            Shadow="true"
-            ShadowColor="_shadowColor"
-            Border="true"
-            BorderColor="_borderColor"
-            OnClick="ResetClickedAsync"
-            Round="false"
-            BackgroundColor="_backgroundColor"
-            TextColor="new CoveColor(225, 225, 225)">
-</CoveButton>
+    <CoveButton Type="CoveButtonType.Button"
+                Text="Test Button, Click Me!"
+                Shadow="true"
+                ShadowColor="_shadowColor"
+                Border="true"
+                BorderColor="_borderColor"
+                OnClick="ResetClickedAsync"
+                Round="false"
+                BackgroundColor="_backgroundColor"
+                TextColor="new CoveColor(225, 225, 225)">
+    </CoveButton>
 
-<div>
-    <p>Count: @_count</p>
-</div>
+    <div>
+        <p>Count: @_count</p>
+    </div>
+
+    <p>
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </p>
+</CoveCard>
+
+
+
+
 
 @code {
     private CoveColor _shadowColor = new CoveColor(0, 0, 0);
