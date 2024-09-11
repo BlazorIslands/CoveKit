@@ -9,7 +9,7 @@
 
 <div @attributes="AdditionalAttributes"
      class="p-2 m-2 ck-card @Class @(Border ? "ck-border" : "ck-no-border") @(Shadow ? "ck-shadow" : "ck-no-shadow") @(Round ? "ck-card-round" : string.Empty)"
-     style="@Style @(SetShadowColor(Shadow, ShadowColor)) @(SetBorderColor(Border, BorderColor)) @(SetBackgroundColor(BackgroundColor))">
+     style="@Style @(SetShadowColor(Shadow, ShadowColor)) @(SetBorderColor(Border, BorderColor)) @(SetBackgroundColor(BackgroundColor)) @(SetSize(Width, Height))">
      @ChildContent
 </div>
 
@@ -23,6 +23,8 @@
     [Parameter] public CoveColor ShadowColor { get; set; }
     [Parameter] public CoveColor BackgroundColor { get; set; }
     [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public int Width { get; set; }
+    [Parameter] public int Height { get; set; }
     [Parameter(CaptureUnmatchedValues = true)] public Dictionary<string, object> AdditionalAttributes { get; set; }
 
     public string SetShadowColor(bool shadow, CoveColor shadowColor) => shadow ? $"box-shadow: 10px 10px 0 0 {shadowColor};" : string.Empty;
@@ -30,4 +32,6 @@
     public string SetBorderColor(bool border, CoveColor borderColor) => border ? $"border-color: {borderColor};" : string.Empty;
 
     public string SetBackgroundColor(CoveColor backgroundColor) => $"background-color: {backgroundColor};";
+
+    public string SetSize(int width, int height) => $"width: {width}%; height: {height}%;";
 }

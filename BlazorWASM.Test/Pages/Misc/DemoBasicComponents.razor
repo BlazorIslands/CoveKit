@@ -7,21 +7,71 @@
           Shadow="true"
           ShadowColor="_shadowColor"
           BackgroundColor="_backgroundColor"
-          Round="true">
+          Round="true"
+          Width="100"
+          Height="100">
 
-    <CoveTextInput Label="Test Label"
-                   Border="true"
-                   Shadow="true"
-                   Width="50"/>
 
-    <CoveTextInput />
+    <div class="row">
+        <div class="col">
+            <CoveTextInput Label="First Name"
+                           Placeholder="Enter first name here..."
+                           Border="true"
+                           Shadow="true"
+                           Width="100" />
+        </div>
+        <div class="col">
+            <CoveTextInput Label="Last Name"
+                           Placeholder="Enter last name here..."
+                           Border="true"
+                           Shadow="true"
+                           Width="100" />
+        </div>
+    </div>
 
-    <CoveIntegerInput />
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <CoveIntegerInput Placeholder="Enter age here..."
+                                  Label="Age"
+                                  Border="true"
+                                  Shadow="true"
+                                  Width="100" />
+            </div>
 
-    <CoveFloatInput TValue="double" />
+            <div class="row">
+                <CoveFloatInput TValue="double"
+                                Label="Weight"
+                                Placeholder="Enter weight here..."
+                                Border="true"
+                                Shadow="true"
+                                Width="100" />
+            </div>
+        </div>
 
-    <CoveButton Text="Click Me" />
+        <div class="col">
+            <CoveCard Border="true"
+                      Shadow="true"
+                      BackgroundColor="new CoveColor(255, 255, 225)"
+                      Width="90"
+                      Height="75">
+                <p class="ck-font">
+                    Some text goes here...
+                </p>
+            </CoveCard>
+        </div>
+    </div>
 
+
+    <div class="row">
+        <div class="col d-flex justify-content-end">
+            <CoveButton Text="Click Me"
+                        Border="true"
+                        Shadow="true"
+                        Round="true"
+                        BackgroundColor="new CoveColor(255, 255, 225)" />
+        </div>
+    </div>
 </CoveCard>
 
 @code {

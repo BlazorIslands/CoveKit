@@ -8,5 +8,8 @@ namespace CoveKit
 {
     interface IResizable
     {
+        int Width { get; set; }
+        int Height { get; set; }
+        string SetSize(int width, int height);
     }
 }
