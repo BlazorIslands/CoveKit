@@ -1,3 +1,16 @@
+.ck-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.ck-input-label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
 .ck-input-round {
     border-radius: 4px;
 }

@@ -6,18 +6,29 @@
 @implements IAdjustableWidth
 @implements IShadowable
 @implements IBorderable
+@implements IRoundable
+@implements ILabelable
 
-<input type="number"
-       value="@Value"
-       @onchange="OnValueChanged"
-       @attributes="AdditionalAttributes"
-       placeholder="@(Placeholder ?? string.Empty)"
-       disabled="@Disabled"
-       max="@MaxValue?.ToString()"
-       min="@MinValue?.ToString()"
-       step="@(Step?.ToString() ?? "1")"
-       class="p-2 m-2 ck-font @Class @(Border ? "ck-border" : "ck-no-border") @(Round ? "ck-input-round" : string.Empty) @(Shadow ? "ck-shadow" : string.Empty)"
-       style="@Style @(SetWidth(Width)) @(SetShadowColor(Shadow, ShadowColor)) @(SetBorderColor(Border, BorderColor))" />
+<div class="ck-input-wrapper"
+     style="@(SetWidth(Width))">
+    @if (!string.IsNullOrEmpty(Label))
+    {
+        <div class="ck-input-label">@Label</div>
+    }
+
+    <input type="number"
+           value="@Value"
+           @onchange="OnValueChanged"
+           @attributes="AdditionalAttributes"
+           placeholder="@(Placeholder ?? string.Empty)"
+           disabled="@Disabled"
+           max="@MaxValue?.ToString()"
+           min="@MinValue?.ToString()"
+           step="@(Step?.ToString() ?? "1")"
+           class="p-2 m-2 ck-font @Class @(Border ? "ck-border" : "ck-no-border") @(Round ? "ck-input-round" : string.Empty) @(Shadow ? "ck-shadow" : string.Empty)"
+           style="@Style @(SetShadowColor(Shadow, ShadowColor)) @(SetBorderColor(Border, BorderColor))" />
+</div>
+
 
 @code {
     /// <summary>
@@ -92,6 +103,9 @@
 
     [Parameter]
     public CoveColor BorderColor { get; set; }
+
+    [Parameter]
+    public string? Label { get; set; }
 
     [Parameter(CaptureUnmatchedValues = true)]
     public Dictionary<string, object> AdditionalAttributes { get; set; }

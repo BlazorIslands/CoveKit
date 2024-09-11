@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace CoveKit
 {
-    internal interface IBackgroundable
+    internal interface ILabelable
     {
-        CoveColor BackgroundColor { get; set; }
-        string SetBackgroundColor(CoveColor backgroundColor);
+        string? Label { get; set; }
     }
 }
