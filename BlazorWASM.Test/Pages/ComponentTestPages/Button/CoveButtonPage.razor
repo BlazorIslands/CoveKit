@@ -4,7 +4,8 @@
 
 <CoveCard Border="true"
           Shadow="true"
-          Round="true">
+          Round="true"
+          Width="100">
     <CoveTextInput Placeholder="Type anything here..."
                    @bind-Value="_value"
                    Shadow="true"
@@ -42,7 +43,7 @@
                 OnClick="ResetClickedAsync"
                 Round="true"
                 BackgroundColor="_backgroundColor"
-                TextColor="new CoveColor(255, 223, 127)">
+                TextColor="new CustomCoveColor(255, 223, 127)">
     </CoveButton>
 
     <CoveButton Type="CoveButtonType.Button"
@@ -54,7 +55,7 @@
                 OnClick="ResetClickedAsync"
                 Round="false"
                 BackgroundColor="_backgroundColor"
-                TextColor="new CoveColor(225, 225, 225)">
+                TextColor="new CustomCoveColor(225, 225, 225)">
     </CoveButton>
 
     <div>
@@ -89,9 +90,9 @@
 
 
 @code {
-    private CoveColor _shadowColor = new CoveColor(0, 0, 0);
-    private CoveColor _borderColor = new CoveColor(0, 0, 0);
-    private CoveColor _backgroundColor = new CoveColor(50, 50, 225);
+    private CustomCoveColor _shadowColor = new CustomCoveColor(0, 0, 0);
+    private CustomCoveColor _borderColor = new CustomCoveColor(0, 0, 0);
+    private CustomCoveColor _backgroundColor = new CustomCoveColor(50, 50, 225);
     private int _count = 0;
     private string _value = string.Empty;
     private CoveTextInput? _textInputRef;

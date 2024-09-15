@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace CoveKit
 {
-    public class CoveColor
+    public class CustomCoveColor
     {
         public int Red { get; set; }
         public int Green { get; set; }
         public int Blue { get; set; }
 
-        public CoveColor(int red, int green, int blue)
+        public CustomCoveColor(int red, int green, int blue)
         {
             Red = red;
             Green = green;

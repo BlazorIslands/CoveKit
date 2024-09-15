@@ -9,7 +9,7 @@ namespace CoveKit
     internal interface IBorderable
     {
         bool Border { get; set; }
-        CoveColor BorderColor { get; set; }
-        string SetBorderColor(bool border, CoveColor borderColor);
+        object BorderColor { get; set; }
+        string SetBorderColor(bool border, object borderColor);
     }
 }

@@ -9,7 +9,7 @@ namespace CoveKit
     internal interface IShadowable
     {
         bool Shadow { get; set; }
-        CoveColor ShadowColor { get; set; }
-        string SetShadowColor(bool shadow, CoveColor shadowColor);
+        object ShadowColor { get; set; }
+        string SetShadowColor(bool shadow, object shadowColor);
     }
 }

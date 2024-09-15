@@ -18,20 +18,59 @@
     [Parameter] public string? Style { get; set; }
     [Parameter] public bool Round { get; set; }
     [Parameter] public bool Border { get; set; }
-    [Parameter] public CoveColor BorderColor { get; set; }
+    [Parameter] public object BorderColor { get; set; }
     [Parameter] public bool Shadow { get; set; }
-    [Parameter] public CoveColor ShadowColor { get; set; }
-    [Parameter] public CoveColor BackgroundColor { get; set; }
+    [Parameter] public object ShadowColor { get; set; }
+    [Parameter] public object BackgroundColor { get; set; }
     [Parameter] public RenderFragment? ChildContent { get; set; }
     [Parameter] public int Width { get; set; }
     [Parameter] public int Height { get; set; }
     [Parameter(CaptureUnmatchedValues = true)] public Dictionary<string, object> AdditionalAttributes { get; set; }
 
-    public string SetShadowColor(bool shadow, CoveColor shadowColor) => shadow ? $"box-shadow: 10px 10px 0 0 {shadowColor};" : string.Empty;
+    public string SetShadowColor(bool shadow, object shadowColor)
+    {
+        if (shadowColor is CoveColor color)
+        {
+            return shadow ? $"box-shadow: 7px 7px 0 0 {CoveColorHelper.GetColorRgba(color)};" : string.Empty;
+        }
 
-    public string SetBorderColor(bool border, CoveColor borderColor) => border ? $"border-color: {borderColor};" : string.Empty;
+        if (shadowColor is CustomCoveColor customColor)
+        {
+            return shadow ? $"box-shadow: 7px 7px 0 0 {customColor};" : string.Empty;
+        }
 
-    public string SetBackgroundColor(CoveColor backgroundColor) => $"background-color: {backgroundColor};";
+        return string.Empty;
+    }
+
+    public string SetBorderColor(bool border, object borderColor)
+    {
+        if (borderColor is CoveColor color)
+        {
+            return border ? $"border-color: {CoveColorHelper.GetColorRgba(color)};" : string.Empty;
+        }
+
+        if (borderColor is CustomCoveColor customColor)
+        {
+            return border ? $"border-color: {customColor};" : string.Empty;
+        }
+
+        return string.Empty;
+    }
+
+    public string SetBackgroundColor(object backgroundColor)
+    {
+        if (backgroundColor is CoveColor color)
+        {
+            return $"background-color: {CoveColorHelper.GetColorRgba(color)};";
+        }
+
+        if (backgroundColor is CustomCoveColor customColor)
+        {
+            return $"background-color: {customColor};";
+        }
+
+        return string.Empty;
+    }
 
     public string SetSize(int width, int height) => $"width: {width}%; height: {height}%;";
 }

@@ -8,7 +8,7 @@ namespace CoveKit
 {
     internal interface IBackgroundColorable
     {
-        CoveColor BackgroundColor { get; set; }
-        string SetBackgroundColor(CoveColor backgroundColor);
+        object BackgroundColor { get; set; }
+        string SetBackgroundColor(object backgroundColor);
     }
 }
