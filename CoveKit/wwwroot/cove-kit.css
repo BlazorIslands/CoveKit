@@ -1,3 +1,47 @@
+:root {
+    /*******************************
+     *    CoveKit Color Palette    *
+     *******************************/
+
+    /* Neutrals */
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --color-off-white: #F0F0F0;
+    --color-light-gray: #D0D0D0;
+    --color-gray: #A8A8A8;
+    --color-dark-gray: #707070;
+    --color-charcoal: #404040;
+    --color-slate: #2E2E2E;
+    --color-ash: #888888;
+    --color-steel: #5A5A5A;
+    --color-silver: #C0C0C0;
+    --color-concrete: #999999;
+
+    /* Muted Colors */
+    --color-muted-red: #B04A4A;
+    --color-muted-orange: #C08744;
+    --color-muted-yellow: #C9B349;
+    --color-muted-green: #6B8E63;
+    --color-muted-blue: #4A7A9E;
+    --color-muted-teal: #4E7E7F;
+    --color-muted-purple: #7E4A84;
+    --color-muted-pink: #9E4A7A;
+    --color-muted-brown: #7F5A44;
+    --color-muted-olive: #7F7B4A;
+
+    /* Bold Colors */
+    --color-bold-red: #FF0000;
+    --color-bold-orange: #FF7F00;
+    --color-bold-yellow: #FFFF00;
+    --color-bold-green: #00FF00;
+    --color-bold-blue: #0000FF;
+    --color-bold-cyan: #00FFFF;
+    --color-bold-magenta: #FF00FF;
+    --color-bold-pink: #FF1493;
+    --color-bold-lime: #BFFF00;
+    --color-bold-violet: #9400D3;
+}
+
 .ck-font {
     font-family: 'Cascadia Mono', sans-serif;
     font-size: 20px;
@@ -8,7 +52,7 @@
 .ck-border {
     border-style: solid;
     border-width: 3px;
-    border-color: black;
+    border-color: var(--color-black);
 }
 
 .ck-no-border {
@@ -16,5 +60,5 @@
 }
 
 .ck-shadow {
-    box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 1);
+    box-shadow: 7px 7px 0px 0px var(--color-black);
 }

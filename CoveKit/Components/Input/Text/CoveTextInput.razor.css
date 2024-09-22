@@ -4,11 +4,27 @@
     margin-bottom: 10px;
 }
 
+.ck-input-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
 .ck-input-label {
+    font-family: 'Courier New', Courier, monospace;
     font-size: 14px;
     font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
+}
+
+.ck-input-text-counter {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.ck-input-text-counter.max-length-reached {
+    color: var(--color-bold-red)
 }
 
 .ck-input-round {

@@ -7,18 +7,27 @@
 @implements IRoundable
 @implements ILabelable
 
-<div class="ck-input-wrapper"
+<div class="p-2 ck-input-wrapper"
      style="@(SetWidth(Width))">
-    @if (!string.IsNullOrEmpty(Label))
-    {
-        <div class="ck-input-label">@Label</div>
-    }
+
+     <div class="ck-input-header">
+        @if (!string.IsNullOrEmpty(Label))
+        {
+            <div class="ck-input-label">@Label.ToUpper()</div>
+        }
+
+        @if (ShowCounter)
+        {
+            <div class="ck-input-text-counter @(Count >= MaxLength ? "max-length-reached" : string.Empty)">@(Value?.Length ?? 0) / @MaxLength</div>
+        }
+     </div>
 
     <input type="text"
            value="@Value"
            maxlength="@MaxLength"
            placeholder="@(Placeholder ?? string.Empty)"
            @attributes="AdditionalAttributes"
+           @oninput="OnInputChanged"
            class="p-2 m-2 ck-font @Class @(Border ? "ck-border" : "ck-no-border") @(Round ? "ck-input-round" : string.Empty) @(Shadow ? "ck-shadow" : string.Empty)"
            style="@Style @(SetShadowColor(Shadow, ShadowColor)) @(SetBorderColor(Border, BorderColor))" />
 </div>
@@ -85,8 +94,13 @@
     [Parameter]
     public string? Label { get; set; }
 
+    [Parameter]
+    public bool ShowCounter { get; set; }
+
     [Parameter(CaptureUnmatchedValues = true)]
     public Dictionary<string, object> AdditionalAttributes { get; set; }
+
+    public int Count => Value?.Length ?? 0;
 
     /// <summary>
     /// Sets the width of the input element based on the specified percentage.
@@ -138,7 +152,7 @@
     /// Handles the value changed event of the input element.
     /// </summary>
     /// <param name="e">The event arguments.</param>
-    private void OnValueChanged(ChangeEventArgs e)
+    private void OnInputChanged(ChangeEventArgs e)
     {
         Value = e.Value.ToString();
         ValueChanged.InvokeAsync(Value);

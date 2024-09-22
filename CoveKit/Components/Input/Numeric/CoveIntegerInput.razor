@@ -11,7 +11,7 @@
      style="@(SetWidth(Width))">
     @if (!string.IsNullOrEmpty(Label))
     {
-        <div class="ck-input-label">@Label</div>    
+        <div class="ck-input-label">@Label.ToUpper()</div>    
     }
 
     <input type="number"
