@@ -40,13 +40,29 @@
     --color-bold-pink: #FF1493;
     --color-bold-lime: #BFFF00;
     --color-bold-violet: #9400D3;
+
+
+    /*******************************
+     *    CoveKit Fonts            *
+     *******************************/
+
+     /* Font Family */
+    --font-LucidaConsole: 'Lucida Console';
+    --font-CascadiaMono: 'Cascadia Mono';
+    --font-Consolas: 'Consolas';
+    --font-CourierNew: 'Courier New';
+
+    /* Font Size */
+    --font-size-small: 12px;
+    --font-size-medium: 16px;
+    --font-size-large: 20px;
 }
 
 .ck-font {
-    font-family: 'Cascadia Mono', sans-serif;
-    font-size: 20px;
+    font-family: var(--font-CascadiaMono), sans-serif;
+    font-size: var(--font-size-medium);
     font-weight: 400;
-    color: black;
+    color: var(--color-black);
 }
 
 .ck-border {

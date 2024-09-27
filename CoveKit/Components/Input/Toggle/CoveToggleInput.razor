@@ -1,0 +1,14 @@
+@namespace
+
+@implements ICoveKitComponent
+
+<label class="ck-input-toggle-switch">
+    <input type="checkbox">
+    <span class="ck-input-toggle-slider"></span>
+</label>
+
+@code {
+    [Parameter] string? Class { get; set; }
+    [Parameter] string? Style { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)] Dictionary<string, object> AdditionalAttributes { get; set; }
+}

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoveKit
 {
-    internal interface IAdjustableWidth
+    internal interface IWidthAdjustable
     {
         int Width { get; set; }
         string SetWidth(int width);
