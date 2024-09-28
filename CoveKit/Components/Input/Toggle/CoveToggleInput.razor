@@ -1,14 +1,15 @@
-@namespace
+@namespace CoveKit
 
 @implements ICoveKitComponent
 
-<label class="ck-input-toggle-switch">
+<label class="ck-toggle-input-switch">
     <input type="checkbox">
-    <span class="ck-input-toggle-slider"></span>
+    <span class="ck-toggle-input-slider"></span>
 </label>
 
 @code {
-    [Parameter] string? Class { get; set; }
-    [Parameter] string? Style { get; set; }
-    [Parameter(CaptureUnmatchedValues = true)] Dictionary<string, object> AdditionalAttributes { get; set; }
+    [Parameter] public string? Class { get; set; }
+    [Parameter] public string? Style { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)] public Dictionary<string, object> AdditionalAttributes { get; set; }
+    [Parameter] public bool Value { get; set; }
 }

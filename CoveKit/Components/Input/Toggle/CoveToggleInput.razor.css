@@ -3,6 +3,7 @@
     display: inline-block;
     width: 60px;
     height: 34px;
+    box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 1);
 }
 
 .ck-toggle-input-switch input {
@@ -19,8 +20,8 @@
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
     transition: .4s;
+    box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 1);
 }
 
 .ck-toggle-input-slider:before {
@@ -31,20 +32,26 @@
     left: 4px;
     bottom: 4px;
     background-color: white;
-    -webkit-transition: .4s;
     transition: .4s;
+    box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 1);
 }
 
-input:checked + .ck-input-toggle-slider {
+input:checked + .ck-toggle-input-slider {
     background-color: #2196F3;
 }
-  
-input:focus + .ck-input-toggle-slider {
-    box-shadow: 0 0 1px #2196F3;
+
+input:checked + .ck-toggle-input-slider:before {
+    transform: translateX(26px);
 }
   
-input:checked + .ck-input-toggle-slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+input:focus + .ck-toggle-slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+.ck-toggle-input-switch-round {
+    border-radius: 50%;
+}
+
+.ck-toggle-input-slider-round {
+    border-radius: 50%;
 }
