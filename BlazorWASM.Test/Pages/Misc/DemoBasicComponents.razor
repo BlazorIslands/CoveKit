@@ -85,7 +85,12 @@
     </div>
 </CoveCard>
 
-<CoveToggleInput />
+<CoveToggleInput Border="true"
+                 BorderColor="CoveColor.Black"
+                 Shadow="true"
+                 ShadowColor="CoveColor.Black"
+                 SwitchColor="CoveColor.BoldLime"
+                 SliderColor="CoveColor.MutedBlue" />
 
 @code {
     private (CoveColor borderColor, CoveColor backgroundColor, CoveColor shadowColor) _firstTheme = (CoveColor.Black, CoveColor.MutedPurple, CoveColor.Black);
