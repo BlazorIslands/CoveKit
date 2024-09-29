@@ -104,7 +104,23 @@
                  BorderColor="CoveColor.Black"
                  Shadow="true"
                  ShadowColor="CoveColor.Black"
-                 Value="_isOn"/>
+                 Value="@_isOn"
+                 ValueChanged="HandleToggleChanged"/>
+
+<div class="row">
+    <div class="col">
+        <CoveText Font="CoveFont.CourierNew"
+                    FontSize="CoveFontSize.Large">
+            @if (_isOn) 
+            {
+                <p>Toggle Switch is ON</p>
+            }
+            else {
+                <p>Toggle Switch is OFF</p>
+            }
+        </CoveText>
+    </div>
+</div>
 
 @code {
     private (CoveColor borderColor, CoveColor backgroundColor, CoveColor shadowColor) _firstTheme = (CoveColor.Black, CoveColor.MutedPurple, CoveColor.Black);
@@ -114,5 +130,11 @@
     private void ChangeColorClicked()
     {
         _firstTheme = _firstTheme == (CoveColor.Black, CoveColor.MutedPurple, CoveColor.Black) ? (CoveColor.Ash, CoveColor.MutedPurple, CoveColor.MutedTeal) : (CoveColor.Black, CoveColor.MutedPurple, CoveColor.Black);
+    }
+
+    private void HandleToggleChanged(bool toggledOn) 
+    {
+        _isOn = toggledOn;
+        StateHasChanged();
     }
 }

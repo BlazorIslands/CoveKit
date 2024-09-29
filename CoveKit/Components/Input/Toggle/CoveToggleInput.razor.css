@@ -21,7 +21,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--slider-color);
+    background-color: var(--switch-color-off);
     transition: .4s;
 }
 
@@ -32,7 +32,7 @@
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: var(--switch-color-on);
+    background-color: var(--slider-color-off);
     transition: .4s;
 }
 
