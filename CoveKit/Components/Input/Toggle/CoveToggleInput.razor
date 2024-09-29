@@ -3,24 +3,26 @@
 @implements ICoveKitComponent
 @implements IShadowable
 
-<label class="@(Shadow ? "ck-toggle-input-switch-shadow" : "ck-toggle-input-switch") @(Round ? "" : string.Empty) @(Shadow ? "ck-shadow" : string.Empty) @(Border ? "ck-border" : string.Empty) @Class"
-       style="@(SetShadowColor(Shadow, ShadowColor)) --switch-color-on: @(SetSwitchColor(SwitchColor)); --slider-color: @(SetSliderColor(SliderColor)); --slider-color-on: @(SetSliderColor(SliderColor)); @Style">
+<label class="@(Shadow ? "ck-toggle-input-switch-shadow" : "ck-toggle-input-switch") @(Shadow ? "ck-shadow" : string.Empty) @(Border ? "ck-border" : string.Empty) @Class"
+       style="--switch-color-off: @(SetLeftSwitchColor(LeftSwitchColor)); --switch-color-on: @(SetRightSwitchColor(RightSwitchColor)); --slider-color-off: @(SetLeftSliderColor(LeftSliderColor)); --slider-color-on: @(SetRightSliderColor(RightSliderColor)); @(SetShadowColor(Shadow, ShadowColor)) @Style">
     <input type="checkbox"
-           class="ck-toggle-input-checkbox">
-    <span class="@(Shadow ? "ck-toggle-input-slider-shadow" : "ck-toggle-input-slider") @(Round ? "" : string.Empty)"></span>
+           class="ck-toggle-input-checkbox"
+           @bind="Value">
+    <span class="@(Shadow ? "ck-toggle-input-slider-shadow" : "ck-toggle-input-slider")"></span>
 </label>
 
 @code {
     [Parameter] public string? Class { get; set; }
     [Parameter] public string? Style { get; set; }
     [Parameter(CaptureUnmatchedValues = true)] public Dictionary<string, object> AdditionalAttributes { get; set; }
-    [Parameter] public bool Round { get; set; }
     [Parameter] public bool Shadow { get; set; }
     [Parameter] public object ShadowColor { get; set; }
     [Parameter] public bool Border { get; set; }
     [Parameter] public object BorderColor { get; set; }
-    [Parameter] public object SwitchColor { get; set; } = CoveColor.Ash;
-    [Parameter] public object SliderColor { get; set; } = CoveColor.MutedBlue;
+    [Parameter] public object LeftSwitchColor { get; set; } = CoveColor.Ash;
+    [Parameter] public object RightSwitchColor { get; set; } = CoveColor.MutedBlue;
+    [Parameter] public object LeftSliderColor { get; set; } = CoveColor.Black;
+    [Parameter] public object RightSliderColor { get; set; } = CoveColor.BoldCyan;
     [Parameter] public bool Value { get; set; }
 
     public string SetShadowColor(bool shadow, object shadowColor) 
@@ -53,7 +55,7 @@
         return string.Empty;
     }
 
-    public string SetSwitchColor(object switchColor) 
+    public string SetLeftSwitchColor(object switchColor) 
     {
         if (switchColor is CoveColor color) 
         {
@@ -68,7 +70,37 @@
         return string.Empty;
     }
 
-    public string SetSliderColor(object sliderColor) 
+    public string SetRightSwitchColor(object switchColor) 
+    {
+        if (switchColor is CoveColor color) 
+        {
+            return $"{CoveColorHelper.GetColorRgba(color)}";
+        }
+
+        if (switchColor is CustomCoveColor customColor) 
+        {
+            return $"{customColor}";
+        }
+
+        return string.Empty;
+    }
+
+    public string SetLeftSliderColor(object sliderColor) 
+    {
+        if (sliderColor is CoveColor color) 
+        {
+            return $"{CoveColorHelper.GetColorRgba(color)}";
+        }
+
+        if (sliderColor is CustomCoveColor customColor) 
+        {
+            return $"{customColor}";
+        }
+
+        return string.Empty;
+    }
+
+    public string SetRightSliderColor(object sliderColor) 
     {
         if (sliderColor is CoveColor color) 
         {
